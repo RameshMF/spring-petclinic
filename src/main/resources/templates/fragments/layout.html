@@ -39,7 +39,7 @@
   
                   <li th:fragment="menuItem (path,active,title,glyph,text)" class="active" th:class="${active==menu ? 'active' : ''}">
                       <a th:href="@{__${path}__}" th:title="${title}">
-                        <span th:class="'glyphicon  glyphicon-'+${glyph}" class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <span th:class="'glyphicon glyphicon-'+${glyph}" class="glyphicon glyphicon-home" aria-hidden="true"></span>
                         <span th:text="${text}">Template</span>
                       </a>
                   </li>
@@ -49,7 +49,7 @@
                       <span>Home</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/owners/find','owners','find owners','search','Find owners')">
+                  <li th:replace="::menuItem ('/owners/find','ownersfind','find owners','search','Find owners')">
                       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                       <span>Find owners</span>
                   </li>
@@ -58,12 +58,18 @@
                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                       <span>Veterinarians</span>
                   </li>
-  
+
+                  <li th:replace="::menuItem ('/owners/new','ownersadd','Add the new owner','','Add New Owner')">
+                      <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                      <span>Add Owner</span>
+                  </li>
+
                   <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">
                       <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                       <span>Error</span>
                   </li>
-  
+
+
               </ul>
           </div>
       </div>
